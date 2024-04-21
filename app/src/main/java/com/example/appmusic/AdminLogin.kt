@@ -4,22 +4,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.appmusic.databinding.ActivityAdminLoginBinding
 import com.example.appmusic.databinding.ActivityLoginBinding
 
-class LoginActivity : AppCompatActivity() {
-    lateinit var binding: ActivityLoginBinding
-    lateinit var databaseUsers: DatabaseUsers
-    var resultDialog: AlertDialog? = null
+class AdminLogin : AppCompatActivity() {
+    lateinit var binding: ActivityAdminLoginBinding
+    lateinit var databaseAdmin: DatabaseAdmin
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityAdminLoginBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-        databaseUsers = DatabaseUsers(this)
+        databaseAdmin = DatabaseAdmin(this)
 
         binding.loginBtn.setOnClickListener {
             val loginName = binding.loginName.text.toString()
@@ -28,13 +31,13 @@ class LoginActivity : AppCompatActivity() {
             if (loginName.isEmpty() || loginPass.isEmpty()) {
                 showErrorDialog("Vui lòng nhập dữ liệu!")
             } else {
-                val user = databaseUsers.checkPass(loginName, loginPass)
-                if (user != null) {
+                val admin = databaseAdmin.checkPass(loginName, loginPass)
+                if (admin != null) {
                     showResultDialog("Đăng nhập thành công!")
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, AdminActivity::class.java)
+
                     //lưu dữ liệu acc
-                    intent.putExtra("user_name", user.getUsername());
-                    intent.putExtra("user_email", user.getEmail());
+                    intent.putExtra("admin_name", admin.getAdminName());
 
                     startActivity(intent)
                     finish()
@@ -44,26 +47,24 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+
         binding.showPasswordCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
+
                 // Hiển thị mật khẩu
-                binding.loginPass.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                binding.loginPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+
             } else {
                 // Ẩn mật khẩu
-                binding.loginPass.transformationMethod = PasswordTransformationMethod.getInstance()
+                binding.loginPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         }
 
+
         binding.loginToSignup.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, AdminSignUp::class.java)
             startActivity(intent)
         }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        // Kiểm tra và đóng dialog nếu đang mở
-        resultDialog?.dismiss()
     }
 
     private fun showResultDialog(message: String) {
@@ -72,8 +73,8 @@ class LoginActivity : AppCompatActivity() {
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
             }
-        resultDialog = builder.create()
-        resultDialog?.show()
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun showErrorDialog(message: String) {
@@ -82,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
             }
-        resultDialog = builder.create()
-        resultDialog?.show()
+        val dialog = builder.create()
+        dialog.show()
     }
 }
