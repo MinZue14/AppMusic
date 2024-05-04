@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,29 +15,46 @@
         android:theme="@style/Theme.AppMusic"
         tools:targetApi="31">
         <activity
-            android:name=".AdminActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AdminSignUp"
-            android:exported="false" />
-        <activity
-            android:name=".AdminLogin"
+            android:name=".AdminTrackActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="appmusic" android:host="callback" />
+
             </intent-filter>
+
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".IntroducetoryActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".AdminUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity"
             android:exported="false"></activity>
+        <activity
+            android:name=".AdminSignUp"
+            android:exported="false" />
+        <activity
+            android:name=".AdminLogin"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

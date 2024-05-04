@@ -2,7 +2,7 @@
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="180dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bkg_menu"
+    android:background="#FDD133"
     android:gravity="bottom"
     android:padding="20dp"
     xmlns:android="http://schemas.android.com/apk/res/android">

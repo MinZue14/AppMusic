@@ -1,14 +1,25 @@
 package com.example.appmusic;
 
 public class Users {
-    String username, email, password;
+    String userID, username, email, password;
 
-    public Users(String username, String email, String password) {
+    public Users(String userID, String username, String email, String password) {
+        this.userID = userID;
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
+    public Users() {
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
     public String getUsername() {
         return username;
@@ -33,9 +44,5 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public Users() {
-    }
-
 }
 

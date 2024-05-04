@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+<group android:checkableBehavior="single">
         <item
             android:icon="@drawable/baseline_home"
             android:id="@+id/navHome"
@@ -13,51 +13,51 @@
             android:id="@+id/navListLiked"
             android:title="Bài Hát Yêu Thích">
         </item>
-    </group>
+</group>
 
-    <group android:checkableBehavior="single">
+<group android:checkableBehavior="single">
         <item android:title="Lựa chọn">
-            <menu>
-                <item
-                    android:icon="@drawable/baseline_genre"
-                    android:id="@+id/navGenre"
-                    android:title="Tuyển Tập">
-                </item>
+                <menu>
+                        <item
+                            android:icon="@drawable/baseline_genre"
+                            android:id="@+id/navGenre"
+                            android:title="Tuyển Tập">
+                        </item>
 
-                <item
-                    android:icon="@drawable/baseline_chart"
-                    android:id="@+id/navChart"
-                    android:title="Bảng Xếp Hạng">
-                </item>
+                        <item
+                            android:icon="@drawable/baseline_chart"
+                            android:id="@+id/navChart"
+                            android:title="Bảng Xếp Hạng">
+                        </item>
 
-                <item
-                    android:icon="@drawable/baseline_country"
-                    android:id="@+id/navCountry"
-                    android:title="Quốc Gia">
-                </item>
-            </menu>
+                        <item
+                            android:icon="@drawable/baseline_country"
+                            android:id="@+id/navCountry"
+                            android:title="Quốc Gia">
+                        </item>
+                </menu>
         </item>
-    </group>
+</group>
 <item android:title="Thông tin">
-    <menu>
-        <item
-            android:id="@+id/nav_user_to_admin"
-            android:icon="@drawable/baseline_android"
-            android:title="Admin">
-        </item>
+        <menu>
+                <item
+                    android:id="@+id/nav_user_to_admin"
+                    android:icon="@drawable/baseline_android"
+                    android:title="Admin">
+                </item>
 
-        <item
-            android:icon="@drawable/baseline_setting"
-            android:id="@+id/navSetting"
-            android:title="Cài Đặt">
-        </item>
+                <item
+                    android:icon="@drawable/baseline_setting"
+                    android:id="@+id/navSetting"
+                    android:title="Cài Đặt">
+                </item>
 
-        <item
-            android:icon="@drawable/baseline_logout"
-            android:id="@+id/navLogOut"
-            android:title="Đăng Xuất">
-        </item>
-    </menu>
+                <item
+                    android:icon="@drawable/baseline_logout"
+                    android:id="@+id/navLogOut"
+                    android:title="Đăng Xuất">
+                </item>
+        </menu>
 </item>
 
 </menu>

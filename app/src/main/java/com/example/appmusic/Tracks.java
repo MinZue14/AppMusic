@@ -1,16 +1,18 @@
 package com.example.appmusic;
 
 public class Tracks {
-    String TrackID, TrackName, TrackGenre, TrackArtist, TrackView, TrackReleaseDate;
-
-    public Tracks(String trackID, String trackName, String trackGenre, String trackArtist, String trackView, String trackReleaseDate) {
-        this.TrackID = trackID;
-        this.TrackName = trackName;
-        this.TrackGenre = trackGenre;
-        this.TrackArtist = trackArtist;
-        this.TrackView = trackView;
-        this.TrackReleaseDate = trackReleaseDate;
+    String TrackID, TrackName, TrackGenre, TrackArtist, TrackView, TrackReleaseDate, TrackCountry, TrackImg;
+    public Tracks(String trackID, String trackName, String trackGenre, String trackArtist, String trackView, String trackImg, String trackReleaseDate, String trackCountry) {
+        TrackID = trackID;
+        TrackName = trackName;
+        TrackGenre = trackGenre;
+        TrackArtist = trackArtist;
+        TrackView = trackView;
+        TrackImg = trackImg;
+        TrackReleaseDate = trackReleaseDate;
+        TrackCountry = trackCountry;
     }
+
 
     public String getTrackID() {
         return TrackID;
@@ -60,6 +62,21 @@ public class Tracks {
         TrackReleaseDate = trackReleaseDate;
     }
 
+    public String getTrackCountry() {
+        return TrackCountry;
+    }
+
+    public void setTrackCountry(String trackCountry) {
+        TrackCountry = trackCountry;
+    }
+
+    public String getTrackImg() {
+        return TrackImg;
+    }
+
+    public void setTrackImg(String trackImg) {
+        TrackImg = trackImg;
+    }
     public Tracks() {
     }
 

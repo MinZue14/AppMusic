@@ -1,4 +1,4 @@
 package com.example.appmusic;
 
-public class DatabaseMusic {
+public class DatabaseArtist {
 }

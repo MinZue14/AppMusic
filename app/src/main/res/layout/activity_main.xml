@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="end">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:background="#F1BE46">
+        android:background="#FDD133">
 
         <ImageButton
             android:id="@+id/btn_open_drawer"
@@ -27,11 +27,11 @@
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_menu"
             android:padding="5dp"
-            android:background="#F1BE46" />
+            android:background="#FDD133" />
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/search"
-            android:background="#F1BE46"
+            android:background="#FDD133"
             android:layout_width="280dp"
             android:layout_height="match_parent"
             app:menu="@menu/search"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_musicnote"
             android:padding="10dp"
-            android:background="#F1BE46" />
+            android:background="#FDD133" />
     </Toolbar>
 
 <!--Slideshow quảng cáo-->

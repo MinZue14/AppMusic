@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation("com.airbnb.android:lottie:3.4.0")
+    implementation ("com.squareup.picasso:picasso:2.71828")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

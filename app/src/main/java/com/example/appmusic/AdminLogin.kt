@@ -2,6 +2,7 @@ package com.example.appmusic
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import androidx.activity.enableEdgeToEdge
@@ -33,14 +34,7 @@ class AdminLogin : AppCompatActivity() {
             } else {
                 val admin = databaseAdmin.checkPass(loginName, loginPass)
                 if (admin != null) {
-                    showResultDialog("Đăng nhập thành công!")
-                    val intent = Intent(this, AdminActivity::class.java)
-
-                    //lưu dữ liệu acc
-                    intent.putExtra("admin_name", admin.getAdminName());
-
-                    startActivity(intent)
-                    finish()
+                    showResultDialog("Đăng nhập thành công!", admin)
                 } else {
                     showErrorDialog("Đăng nhập thất bại!")
                 }
@@ -67,22 +61,27 @@ class AdminLogin : AppCompatActivity() {
         }
     }
 
-    private fun showResultDialog(message: String) {
+    private fun showResultDialog(message: String, admin: Admin) {
         val builder = AlertDialog.Builder(this)
         builder.setMessage(message)
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
-            }
         val dialog = builder.create()
         dialog.show()
+
+        // Đóng Dialog sau 2 giây và chuyển trang
+        Handler().postDelayed({
+            dialog.dismiss()
+            val intent = Intent(this, AdminActivity::class.java)
+
+            //lưu dữ liệu acc
+            intent.putExtra("admin_name", admin.getAdminName())
+            startActivity(intent)
+            finish()
+        }, 2000) // Thời gian là 2 giây (có thể điều chỉnh thời gian tùy ý)
     }
 
     private fun showErrorDialog(message: String) {
         val builder = AlertDialog.Builder(this)
         builder.setMessage(message)
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
-            }
         val dialog = builder.create()
         dialog.show()
     }
